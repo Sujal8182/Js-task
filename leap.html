@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leap Year Teller</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      background: #ffffffcc;
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      animation: slideUp 1s ease-out;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #333;
+      animation: bounceIn 1.2s ease-out;
+    }
+
+    input {
+      padding: 12px;
+      width: 80%;
+      max-width: 250px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    input:focus {
+      box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #4facfe;
+      background: linear-gradient(to right, #43e97b, #38f9d7);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #38f9d7, #43e97b);
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+      min-height: 24px;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    /* Animations */
+    @keyframes slideUp {
+      from {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Leap Year Teller</h1>
+    <input type="number" id="yearInput" placeholder="Enter a year" />
+    <br />
+    <button onclick="checkLeapYear()">Check</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function checkLeapYear() {
+      const year = parseInt(document.getElementById("yearInput").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(year)) {
+        resultDiv.textContent = "Please enter a valid year.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        resultDiv.textContent = year + " is a leap year.";
+        resultDiv.style.color = "#008000";
+      } else {
+        resultDiv.textContent = year + " is not a leap year.";
+        resultDiv.style.color = "#cc0000";
+      }
+    }
+  </script>
+</body>
+</html>
