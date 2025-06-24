@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Variables</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #f0f4f8, #d9eaf5);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #swap {
+            color: #0077cc;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="aa"></h1>
+    <h1 id="ab"></h1>
+    <h2 id="swap"></h2>
+    <button onclick="swap()">Click to swap</button>
+
+    <script>
+        let a = 10;
+        let b = 20;
+        let h1 = document.getElementById("aa");
+        let h11 = document.getElementById("ab");
+        let swapbutton = document.getElementById("swap");
+
+        h1.innerHTML = `A = ${a}`;
+        h11.innerHTML = `B = ${b}`;
+
+        function swap() {
+            let c = a;
+            a = b;
+            b = c;
+
+            h1.innerHTML = `A = ${a}`;
+            h11.innerHTML = `B = ${b}`;
+            swapbutton.innerHTML = `Swapping is done ✅`;
+        }
+    </script>
+</body>
+</html>

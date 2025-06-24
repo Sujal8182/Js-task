@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Duplicate Finder</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .no-dup {
+      color: green;
+    }
+
+    .has-dup {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Duplicate Finder</h2>
+    <input id="inputArray" type="text" placeholder="Enter numbers like 1,2,3,2,4">
+    <button onclick="findDuplicates()">Find Duplicates</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function findDuplicates() {
+      let input = document.getElementById("inputArray").value;
+      let arr = input.split(',');
+      let duplicates = [];
+      let seen = [];
+
+      for (let i = 0; i < arr.length; i++) {
+        let item = arr[i].trim();
+        if (seen.includes(item)) {
+          if (!duplicates.includes(item)) {
+            duplicates.push(item);
+          }
+        } else {
+          seen.push(item);
+        }
+      }
+
+      const resultDiv = document.getElementById("result");
+      if (duplicates.length) {
+        resultDiv.className = "has-dup";
+        resultDiv.textContent = "Duplicates: " + duplicates.join(', ');
+      } else {
+        resultDiv.className = "no-dup";
+        resultDiv.textContent = "No duplicates found.";
+      }
+    }
+  </script>
+
+</body>
+</html>

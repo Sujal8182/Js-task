@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz buzz</title>
+</head>
+<body>
+    <input type="text" id="prime" placeholder="Enter a number">
+        <button onclick="find()">Check Prime</button>
+        <h2 >Fizz : <span id="fizz">0</span></h2>
+        <h2 >Buzz : <span id="buzz">0</span></h2>
+        <h2 >Fizzbuzz : <span id="both">0</span></h2>
+</body>
+<script>
+    
+    function find(){
+            let input = document.getElementById("prime").value
+            let input1 = document.getElementById("prime")
+            let fizz = document.getElementById("fizz")
+            let buzz = document.getElementById("buzz")
+            let both = document.getElementById("both")
+
+            fizz.innerText = 0
+            buzz.innerText = 0
+            both.innerText = 0
+            for(let i = 3 ; i <= input ; i++){
+                if(i%3 === 0){
+                    fizz.innerText++ 
+                }
+                else if(i%5 === 0){
+                    buzz.innerText++ 
+                }
+                else if(i%3 === 0 && ans%5 === 0){
+                    both.innerText++
+                }
+            }
+            
+
+            input1.value = ''
+
+        }
+</script>
+</html>

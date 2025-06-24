@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            background-color: #2a2a3d;
+            color: #f0f0f0;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        input[type="number"]::placeholder {
+            color: #888;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e91e63;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #00e5ff;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" placeholder="Enter a number" id="num">
+    <button onclick="check()">Check</button>
+    <h1 id="h1"></h1>
+
+    <script>
+        let h1 = document.getElementById("h1");
+        function check(){
+            let num = document.getElementById("num").value;
+
+            if(num % 2 == 0){
+                h1.innerHTML = `Your number is even`;
+                h1.style.color = "#76ff03"; // vibrant green
+            } else {
+                h1.innerHTML = `Your number is odd`;
+                h1.style.color = "#ff9100"; // vibrant orange
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Text</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      background: #ffffffcc;
+      margin-bottom: 20px;
+      transition: 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007BFF;
+      outline: none;
+      background: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #reversing {
+      margin-top: 24px;
+      font-size: 20px;
+      color: #111;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reverse the Text</h1>
+    <input type="text" id="hello" placeholder="Enter text here">
+    <button onclick="reverseName()">Reverse</button>
+    <h2 id="reversing"></h2>
+  </div>
+
+  <script>
+    function reverseName() {
+      let hii = document.getElementById("hello").value;
+      let rev = document.getElementById("reversing");
+
+      let array = [];
+      for (let i = 0; i < hii.length; i++) {
+        array.push(hii[i]);
+      }
+
+      let reverse = [];
+      for (let i = array.length - 1; i >= 0; i--) {
+        reverse.push(array[i]);
+      }
+
+      rev.innerText = reverse.join("");
+    }
+  </script>
+</body>
+</html>

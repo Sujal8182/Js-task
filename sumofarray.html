@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="number" id="number">
+    <button onclick="sumarray()">click</button>
+    <h1 id="sumit"></h1>
+</body>
+<script>
+    let array = []
+    let sum 
+    function sumarray(){
+
+        let input = document.getElementById("number").value
+        let input1 = document.getElementById("number")
+        let ans = document.getElementById("sumit")
+    
+        array.push(input)
+        input1.value = ''
+        console.log(array);
+
+        for(let i = array.length-1 ; i >= 0; i--){
+            sum += array[i]
+        }
+        ans.innerText = sum
+    }
+
+</script>
+</html>
